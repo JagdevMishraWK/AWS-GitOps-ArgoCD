@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webappdemo
+  labels:
+    app: webappdemo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webappdemo
+  template:
+    metadata:
+      labels:
+        app: webappdemo
+    spec:
+      containers:
+        - name: webappdemo
+          image: 943725333913.dkr.ecr.eu-west-1.amazonaws.com/mywebapp@sha256:a2d0fccb29a5b2c356ffde137a9ead290c2c7d3dc25c0cd2a649a95204f2d50c
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
