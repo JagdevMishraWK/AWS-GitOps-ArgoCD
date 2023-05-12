@@ -10,10 +10,10 @@ on:
     branches: [ "main" ]
 
 env:
-  ECR_REPOSITORY: mywebapp
+  ECR_REPOSITORY: myapp
   AWS_ACCOUNT: '943725333913'
   AWS_REGION: eu-west-1
-  EKS_ClusterName: myapp-eks-cluster
+  EKS_ClusterName: webapp-eks-cluster
 
 jobs:
   build:
