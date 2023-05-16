@@ -73,8 +73,8 @@ jobs:
         
     - name: Update kube config
       run: aws eks update-kubeconfig --name ${{ env.EKS_ClusterName }} --region ${{ env.AWS_REGION }}
-    - name: Image digest
-      run: echo ${{step.docker_build.outputs.digest}}
+    #- name: Image digest
+    #  run: echo ${{step.docker_build.outputs.digest}}
 
   update-manifest-stage:
     runs-on: ubuntu-latest
