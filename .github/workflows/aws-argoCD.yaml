@@ -86,7 +86,7 @@ jobs:
           ref: 'main'
           token:  ${{ secrets.Git_TOKEN }}
         name: setup git config
-        run: /
+      - run: /
           git config --global user.email 'Jagdev.Mishra@wolterskluwer.com'
           git config --global user.name 'JagdevMishraWK'
           echo ${{ github.sha }}
