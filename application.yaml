@@ -4,7 +4,7 @@ metadata:
   name: webappdemo-argo-application
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: myapp
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/943725333913.dkr.ecr.eu-west-1.amazonaws.com/myapp
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
     argocd-image-updater.argoproj.io/git-branch: main
     #argocd-image-updater.argoproj.io/write-back-target: kustomization
