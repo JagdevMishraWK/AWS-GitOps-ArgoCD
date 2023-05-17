@@ -73,27 +73,3 @@ jobs:
         
     - name: Update kube config
       run: aws eks update-kubeconfig --name ${{ env.EKS_ClusterName }} --region ${{ env.AWS_REGION }}
-    #- name: Image digest
-    #  run: echo ${{step.docker_build.outputs.digest}}
-
-  update-manifest-stage:
-    runs-on: ubuntu-latest
-    needs: ['build-and-push-docker-image']
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: 943725333913.dkr.ecr.eu-west-1.amazonaws.com/myapp
-          ref: 'main'
-          token:  ${{ secrets.Git_TOKEN }}
-        name: setup git config
-      - run: /
-          git config --global user.email 'Jagdev.Mishra@wolterskluwer.com'
-          git config --global user.name 'JagdevMishraWK'
-          echo ${{ github.sha }}
-          sed -i "s#${{ github.actor }}.*#${{ github.actor }}/gitops01:${{ github.sha }}#g" deployment.yaml
-          git add -A
-          git commit -am "update image for - ${{ github.sha }}"
-      - run: echo ${{ github }}
-      - run: git push origin main
-
-
